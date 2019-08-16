@@ -27,12 +27,14 @@ def calculate_isbn10_barcode_check_digit():
     barcode=input("scan your barcode to get the checkDigit: ")
     if barcode_validator(barcode):
         barcode=clean_barcode(barcode)
-        temp_barcode = barcode[:1]
+        print(barcode)
+        temp_barcode = barcode[:-1]
+        print(temp_barcode)
         list_barcode=[int(x) for x in str(temp_barcode)]
-        
         total=0
 #calculate the check digit and print that out
     sorted(list_barcode , reverse= True)
+    print(len(list_barcode))
     for item in range(0,len(list_barcode)): 
         total+=(list_barcode[item]*(10-item))
     checkDigit=11-(total%11)
